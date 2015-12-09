@@ -1,10 +1,15 @@
 // pulp
-package pulp
+package main
 
 import (
+	"github.com/pulpclient/common"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Hello World!")
+	pc := common.NewClient("<pulp-server-url","","", "<user-name>", "<password>")	
+	err := pc.Authenticate()
+	
+	fmt.Println(err)
+	fmt.Println(pc.Cert.PkiKey)
 }
